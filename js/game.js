@@ -13,6 +13,10 @@ var player;
 	
 	//Instantiate the Player
 	player = new GameObject(0, 300, 25, 100);
+	ball = new GameObject(canvas.width/2, canvas.height/2, 50, 50);
+
+	ball.vx = 5;
+	ball.vy = 5;
 
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);
@@ -58,8 +62,21 @@ function animate()
 		}
 	}
 
-	
+	if (ball.x + ball.width/2 >= canvas.width || ball.x - ball.width/2 <= 0)
+        {
+            ball.vx *= -1;
+        }
+
+        if(ball.y + ball.height/2 >= canvas.height || ball.y - ball.height/2 <= 0)
+        {
+            ball.vy *= -1;
+        }
+
+        ball.x += ball.vx;
+        ball.y += ball.vy;
+
 	//Update the Screen
 	player.drawRect();
+	ball.drawCircle();
 }
 

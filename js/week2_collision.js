@@ -9,6 +9,7 @@ var player;
 
 //This is used to stop the player from moving through obstacles.
 var prevX;
+var rblockColor = "blue";
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
@@ -77,11 +78,13 @@ function animate()
 	if(rBlock2.hitTestObject(player))
 	{
 		player.x = prevX;
+		rBlock2.color = `rgb(${Math.random() *255},${Math.random() *255},${Math.random() *255})`;
 		console.log("colliding");
 	}
 	else
 	{
 		prevX = player.x;
+		rBlock2.color = rblockColor;
 	}
 	
 	//Update the Screen

@@ -46,6 +46,6 @@ function animate()
 
 	
 	//Update the Screen
-	player.drawCircle();
+	player.drawRect();
 }
 

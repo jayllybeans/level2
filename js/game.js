@@ -12,7 +12,7 @@ var player;
 	context = canvas.getContext("2d");	
 	
 	//Instantiate the Player
-	player = new GameObject(100, 300, 25, 100);
+	player = new GameObject(0, 300, 25, 100);
 
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);
@@ -24,7 +24,7 @@ function animate()
 	
 	
 	//Move the Player to the right
-	if(d)
+	/*if(d)
 	{
 		console.log("Moving Right");
 		player.x += 2;
@@ -33,15 +33,29 @@ function animate()
 	{
 		console.log("Moving Left");
 		player.x += -2;
-	}
+	}*/
 	if(w)
 	{
-		console.log("Moving Up");
-		player.y += -2;
+		//console.log("Moving Up");
+		if (player.y - player.height <= -50)
+		{
+			player.vy = 0;
+		}
+		else
+		{
+			player.y += -2;
+		}
 	}
 	if(s){
-		console.log("Moving Down");
-		player.y += 2;	
+		//console.log("Moving Down");
+		if (player.y + player.height >= (canvas.height + 50))
+		{
+			player.vy = 0;
+		}
+		else
+		{
+			player.y += 2;
+		}
 	}
 
 	

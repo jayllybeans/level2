@@ -12,7 +12,7 @@ var player;
 	context = canvas.getContext("2d");	
 	
 	//Instantiate the Player
-	player = new GameObject();
+	player = new GameObject(100, 300, 25, 100);
 
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);

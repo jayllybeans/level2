@@ -62,10 +62,12 @@ function animate()
 		}
 	}
 
-	if (ball.x + ball.width/2 >= canvas.width || ball.x - ball.width/2 <= 0)
-        {
-            ball.vx *= -1;
-        }
+		let collisionDetected = player.hitTestObject(ball);
+
+		if(collisionDetected || ball.x + ball.width/2 >= canvas.width)
+		{
+			ball.vx *= -1;
+		}
 
         if(ball.y + ball.height/2 >= canvas.height || ball.y - ball.height/2 <= 0)
         {

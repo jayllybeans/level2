@@ -66,6 +66,16 @@ function animate()
 
 		if(collisionDetected || ball.x + ball.width/2 >= canvas.width)
 		{
+			if (ball.y < player.y - player.y/6)
+			{
+				ball.vx++;
+				ball.vy--;
+			}
+			else if (ball.y > player.y - player.y/6)
+			{
+				ball.vx++;
+				ball.vy++;
+			}
 			ball.vx *= -1;
 		}
 

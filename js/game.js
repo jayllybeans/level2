@@ -77,6 +77,11 @@ function animate()
         ball.x += ball.vx;
         ball.y += ball.vy;
 
+		if (ball.x + ball.width/2 <= 0)
+		{
+			ball.x = canvas.width/2;
+			ball.y = canvas.height/2;
+		}
 	//Update the Screen
 	player.drawRect();
 	ball.drawCircle();
